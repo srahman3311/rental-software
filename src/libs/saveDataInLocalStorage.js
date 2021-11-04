@@ -1,5 +1,6 @@
-export const saveDataInLocalStorage = (data, setProducts) => {
+export const saveDataInLocalStorage = async (data, setProducts) => {
 
+    console.log(localStorage.getItem("products"));
 
     // Changing the original array by adding discount property. For the actual application creating a functionality to add discount
     // percentage won't a big deal
@@ -35,7 +36,6 @@ export const saveDataInLocalStorage = (data, setProducts) => {
     
     // Save intial data in localStorage just once, when component mounts for the first time. confirmBooking function will
     // save updated data in localStorage and we don't want to lose that just because component re-mounts 
-
 
     if(localStorage.getItem("products") === null) {
         localStorage.setItem("products", JSON.stringify(newData));

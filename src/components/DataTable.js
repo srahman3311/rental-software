@@ -73,6 +73,10 @@ export default function DataTable() {
 
     useEffect(() => {
 
+        // async function fetchData() {
+
+        // }
+
         saveDataInLocalStorage(data, setProducts);
 
     }, [])
@@ -211,7 +215,9 @@ export default function DataTable() {
                         <SelectProduct
                             // if client opens the modal after searching then products state might have already been
                             // updated with filtered products. But we need to pass all products to product dropdown 
-                            products = {JSON.parse(localStorage.getItem("products"))} 
+                            products = {
+                                JSON.parse(localStorage.getItem("products")) === null ? products : JSON.parse(localStorage.getItem("products"))
+                            }
                             bookingInfo = {bookingInfo} 
                             setError = {setError}
                             setBookingInfo = {setBookingInfo}
